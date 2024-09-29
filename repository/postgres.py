@@ -2,7 +2,7 @@ from .entities import Repository
 import psycopg2
 
 
-class SQLiteRepository(Repository):
+class PostgresRepository(Repository):
     def __init__(self, db_path):
         self.db_path = db_path
         self._create_game_table()
