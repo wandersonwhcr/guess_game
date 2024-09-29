@@ -1,4 +1,6 @@
 .venv
 .vscode
 Dockerfile*
+docker-compose*
 */__pycache__/*
+db/*

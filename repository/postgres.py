@@ -8,7 +8,7 @@ class PostgresRepository(Repository):
         self._create_game_table()
 
     def _create_game_table(self):
-        conn = psycopg2.connect(self.db_path)
+        conn = psycopg2.connect(self.db_url)
         cursor = conn.cursor()
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS game (

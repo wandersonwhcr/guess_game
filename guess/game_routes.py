@@ -5,15 +5,18 @@ import string
 
 game_bp = Blueprint('game_bp', __name__)
 
+
 def generate_salt(length=4):
     """Generate a random alphanumeric salt."""
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
 
 def hash_password(password, salt):
     """Hash a password with the given salt."""
     hasher = hashlib.sha256()
     hasher.update(f"{salt}{password}".encode('utf-8'))
     return hasher.hexdigest()
+
 
 @game_bp.route('/create', methods=['POST'])
 def create_game():
@@ -24,6 +27,7 @@ def create_game():
     data = {'password': f"{hashed_password}:{salt}", 'attempts': []}
     current_app.db.store(game_id, data)
     return jsonify({'game_id': game_id})
+
 
 @game_bp.route('/guess/<game_id>', methods=['POST'])
 def guess(game_id):
