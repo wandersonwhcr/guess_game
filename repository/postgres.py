@@ -3,12 +3,13 @@ import psycopg2
 
 
 class PostgresRepository(Repository):
-    def __init__(self, db_path):
-        self.db_path = db_path
+    def __init__(self, db_string):
+        self.db_string = db_string
+        self.conn = psycopg2.connect(self.db_string)
         self._create_game_table()
 
     def _create_game_table(self):
-        conn = psycopg2.connect(self.db_url)
+        conn = self.conn
         cursor = conn.cursor()
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS game (
@@ -18,28 +19,26 @@ class PostgresRepository(Repository):
             )
         ''')
         conn.commit()
-        conn.close()
 
     def store(self, game_id, data: dict):
-        conn = psycopg2.connect(self.db_path)
+        conn = self.conn
         cursor = conn.cursor()
         cursor.execute('''
             INSERT INTO game (game_id, password, attempts)
-            VALUES (?, ?, ?)
+            VALUES (%s, %s, %s)
         ''', (game_id, data["password"], 0))
         conn.commit()
-        conn.close()
 
     def retrieve(self, game_id):
-        conn = psycopg2.connect(self.db_path)
+        conn = self.conn
         cursor = conn.cursor()
         cursor.execute('''
             SELECT game_id, password, attempts
             FROM game
-            WHERE game_id = ?
+            WHERE game_id = %s
         ''', (game_id,))
         result = cursor.fetchone()
-        conn.close()
+
         if result:
             game_id, password, attempts = result
             return {"password": password, "attempts": attempts}
