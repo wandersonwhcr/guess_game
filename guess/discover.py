@@ -10,21 +10,25 @@ class Guess:
 
     def attempt(self, guess):
         if len(guess) < len(self.word):
-            raise WrongAttempt("Guess is too short")
+            raise WrongAttempt("Incorrect. Guess is too short")
         if len(guess) > len(self.word):
-            raise WrongAttempt("Guess is too long")
+            raise WrongAttempt("Incorrect. Guess is too long")
 
-        pos, tot = self.compare_strings(guess)
-        if pos == len(self.word):
+        correct, wrong = self.compare_strings(guess)
+        if correct == len(self.word):
             return True
         else:
             raise WrongAttempt(
-                    f"Correct positions: {pos}, Correct letters (wrong position): {tot}")
+                (f"Incorrect, but you gessed "
+                 f"{correct} {plural('letter', correct)} in correct {plural('position', correct)}, "
+                 f"{wrong} in wrong {plural('position', wrong)}, "
+                 f"of {len(self.word)} {plural('letter', len(self.word))}"))
 
     def compare_strings(self, guess):
         target = self.word
         if len(target) != len(guess):
-            raise WrongAttempt("Both strings must be of the same length.")
+            raise WrongAttempt(
+                "Incorrect. Both strings must be of the same length.")
 
         correct_letters = 0
         correct_positions = 0
@@ -48,3 +52,7 @@ class Guess:
                         break
 
         return correct_positions, correct_letters
+
+
+def plural(word, count):
+    return word if count == 1 else word + "s"

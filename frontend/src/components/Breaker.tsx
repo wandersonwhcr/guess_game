@@ -55,7 +55,7 @@ const Breaker: React.FC = () => {
                 <button type="submit">Submit Guess</button>
             </form>
             {error && <p className="error">{error}</p>}
-            {result && <p className={result === 'Result: Incorrect' ? 'incorrect' : ''}>{result}</p>}
+            {result && <p className={result.startsWith('Result: Incorrect') ? 'incorrect' : ''}>{result}</p>}
         </div>
     );
 };
