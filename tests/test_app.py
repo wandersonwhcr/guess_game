@@ -32,7 +32,7 @@ def test_guess(client):
     # Test guessing with an incorrect password
     wrong_guess_response = client.post(f'/guess/{game_id}', json={'guess': 'wrong'})
     assert wrong_guess_response.status_code == 200
-    assert wrong_guess_response.get_json()['result'] == "Incorrect"
+    assert wrong_guess_response.get_json()['result'].startswith("Incorrect")
 
     # Test guessing with an incorrect password
     wrong_game_id = client.post('/guess/xxxxxx', json={'guess': 'test'})

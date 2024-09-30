@@ -36,7 +36,7 @@ def guess(game_id):
             guess.attempt(myguess)
         except WrongAttempt as e:
             return jsonify({'result': str(e)})
-        return jsonify({'result': 'Correct!'})
+        return jsonify({'result': 'Correct'})
     except KeyError:
         current_app.logger.error(f"Game {game_id} not found")
         return jsonify({'error': 'Game not found'}), 404
