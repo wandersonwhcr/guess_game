@@ -23,12 +23,14 @@ Este é um simples jogo de adivinhação desenvolvido utilizando o framework Fla
 ## Instalação
 
 1. Clone o repositório:
+
    ```bash
    git clone https://github.com/fams/guess_game.git
    cd guess-game
    ```
 
 2. Crie um ambiente virtual e ative-o:
+
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # Linux/Mac
@@ -74,29 +76,35 @@ Este é um simples jogo de adivinhação desenvolvido utilizando o framework Fla
         ```
 
 5. Execute o backend
+
    ```bash
    ./start-backend.sh &
    ```
 
-
 ## Frontend
 No diretorio de frontend
 
-1. Instale o node com o nvm
+1. Instale o node com o nvm. Se não tiver o nvm instalado, siga o [tutorial](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 
     ```bash
-    nvm install 18.17.0\n
-    nvm use 18.17.0\n
+    nvm install 18.17.0
+    nvm use 18.17.0
+    # Habilite o yarn
+    corepack enable
     ```
 
-2. Exporte a url onde está executando o backend e execute o backend
+2. Instale as dependências do node com o npm:
 
-  ```bash
-    REACT_APP_BACKEND_URL=http://localhost:5000
+    ```bash
+    npm install
+    ```
+
+3. Exporte a url onde está executando o backend e execute o backend.
+
+   ```bash
+    export REACT_APP_BACKEND_URL=http://localhost:5000
     yarn start
-    ```
-
-
+   ```
 
 ## Como Jogar
 
