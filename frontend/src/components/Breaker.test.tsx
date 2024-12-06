@@ -29,7 +29,7 @@ test('handles 404 error when game is not found', async () => {
   fetch.mockResponseOnce(JSON.stringify({ error: 'Game not found' }), { status: 404 });
 
   const { getByLabelText, getByText, getByRole } = render(<Breaker />);
-
+  console.error = jest.fn();
   fireEvent.change(getByLabelText(/game id/i), { target: { value: '1' } });
   fireEvent.change(getByLabelText(/your guess/i), { target: { value: 'apple' } });
   fireEvent.click(getByRole('button', { name: /submit guess/i }));

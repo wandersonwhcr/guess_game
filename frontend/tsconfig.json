@@ -1,4 +1,5 @@
 {
+  "exclude": ["cypress.config.ts", "cypress", "node_modules"],
   "compilerOptions": {
     "jsx": "react",
     /* Visit https://aka.ms/tsconfig to read more about this file */
@@ -10,7 +11,13 @@
     // "disableSourceOfProjectReferenceRedirect": true,  /* Disable preferring source files instead of declaration files when referencing composite projects. */
     // "disableSolutionSearching": true,                 /* Opt a project out of multi-project reference checking when editing. */
     // "disableReferencedProjectLoad": true,             /* Reduce the number of projects loaded automatically by TypeScript. */
-
+//    "exclude": [
+//      "./cypress.config.ts",
+//      //other exclusions that may help https://github.com/cypress-io/cypress/issues/22059#issuecomment-1428298264
+//      "node_modules",
+//      "cypress",
+//      "**/*.cy.tsx"
+//    ],
     /* Language and Environment */
     "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
