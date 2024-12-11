@@ -81,6 +81,8 @@ Este é um simples jogo de adivinhação desenvolvido utilizando o framework Fla
    ./start-backend.sh &
    ```
 
+6. Cuidado! verifique se o seu linux está lendo o arquivo .sh com fim de linha do windows CRLF. Para verificar utilize o vim -b start-backend.sh
+
 ## Frontend
 No diretorio de frontend
 
