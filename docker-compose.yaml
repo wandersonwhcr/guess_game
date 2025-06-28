@@ -2,6 +2,12 @@ services:
 
   proxy:
     image: nginx:1.29-alpine
+    container_name: ${COMPOSE_PROJECT_NAME}_proxy
+    configs:
+      - source: proxy-nginx-template-default
+        target: /etc/nginx/templates/default.conf.template
+    ports:
+      - 80:80
 
   backend:
     build:
@@ -26,3 +32,7 @@ services:
       interval: 3s
       timeout: 1s
       retries: 10
+
+configs:
+  proxy-nginx-template-default:
+    file: ./docker-compose/proxy/configs/nginx-template-default.conf
