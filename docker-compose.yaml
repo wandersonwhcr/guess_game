@@ -25,10 +25,12 @@ services:
 
   database:
     image: postgres:17.5-alpine
+    volumes:
+      - database-postgres-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgres
     healthcheck:
-      test: [ CMD, pg_isready ]
+      test: [ CMD, pg_isready, --username=postgres ]
       interval: 3s
       timeout: 1s
       retries: 10
@@ -36,3 +38,6 @@ services:
 configs:
   proxy-nginx-template-default:
     file: ./docker-compose/proxy/configs/nginx-template-default.conf
+
+volumes:
+  database-postgres-data:
