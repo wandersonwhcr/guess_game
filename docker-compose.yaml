@@ -7,13 +7,14 @@ services:
       - source: proxy-nginx-template-default
         target: /etc/nginx/templates/default.conf.template
     ports:
-      - 80:80
+      - 3000:3000
+      - 5000:5000
 
   frontend:
     build:
       dockerfile: ./docker-compose/frontend/Dockerfile
     environment:
-      REACT_APP_BACKEND_URL: http://localhost/backend
+      REACT_APP_BACKEND_URL: http://localhost:5000
 
   backend:
     build:
