@@ -1,3 +1,7 @@
+# TODO
+
+[ ] Configurar Flask como WSGI
+
 Aqui está um exemplo de um arquivo `README.md` para o seu jogo:
 
 ---
