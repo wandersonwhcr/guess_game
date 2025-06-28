@@ -30,10 +30,11 @@ docker compose up \
 - [ ] Configurar Flask como WSGI para Produção
 - [ ] Configurar o React para Produção
 - [ ] Documentar Docker Compose
-- [ ] Colocar Senha em uma Secret
 - [ ] Explicar o Porquê de Containers Prontos ao Invés de Volumes nos Fontes
 - [ ] Explicar como Efetuar Balanceamento de Carga
 - [ ] Desenhar Arquitetura com Redes Isoladas
+
+- [ ] Senha de Banco de Dados em Variável de Ambiente?
 
 ---
 
