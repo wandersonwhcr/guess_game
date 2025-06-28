@@ -1,0 +1,4 @@
+services:
+  backend:
+    build:
+      dockerfile: ./docker-compose/backend/Dockerfile
