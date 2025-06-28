@@ -12,6 +12,12 @@ docker build . \
     --tag guess_game_backend:$GUESS_GAME_VERSION
 ```
 
+```
+docker build . \
+    --file ./docker/frontend/Dockerfile \
+    --tag guess_game_frontend:$GUESS_GAME_VERSION
+```
+
 ## Docker Compose
 
 ```
