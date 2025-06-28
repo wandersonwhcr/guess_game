@@ -15,6 +15,7 @@ services:
 
   frontend:
     image: guess_game_frontend:v1.0
+    restart: on-failure
     networks:
       proxy:
     environment:
