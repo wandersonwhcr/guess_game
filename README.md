@@ -1,6 +1,18 @@
 # Trabalho Prático Unidade 1 Docker
 
-## Inicialização
+## Docker
+
+```
+GUESS_GAME_VERSION="v1.0"
+```
+
+```
+docker build . \
+    --file ./docker/backend/Dockerfile \
+    --tag guess_game_backend:$GUESS_GAME_VERSION
+```
+
+## Docker Compose
 
 ```
 docker compose up \
