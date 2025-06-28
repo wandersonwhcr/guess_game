@@ -29,7 +29,6 @@ docker compose up \
 
 - [ ] Configurar Flask como WSGI para Produção
 - [ ] Configurar o React para Produção
-- [ ] Fazer build das Imagens Locais
 - [ ] Configurar LABELS recomendadas no Dockerfile
 - [ ] Documentar Docker Compose
 - [ ] Colocar Senha em uma Secret
