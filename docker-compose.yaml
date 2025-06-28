@@ -10,8 +10,16 @@ services:
       FLASK_DB_PASSWORD: postgres
       FLASK_DB_HOST: database
       FLASK_DB_PORT: 5432
+    depends_on:
+      database:
+        condition: service_healthy
 
   database:
     image: postgres:17.5-alpine
     environment:
       POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: [ CMD, pg_isready ]
+      interval: 3s
+      timeout: 1s
+      retries: 10
