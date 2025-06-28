@@ -1,6 +1,7 @@
 # TODO
 
 [ ] Configurar Flask como WSGI
+[ ] Fazer build das Imagens Locais
 
 Aqui está um exemplo de um arquivo `README.md` para o seu jogo:
 

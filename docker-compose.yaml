@@ -9,6 +9,9 @@ services:
     ports:
       - 80:80
 
+  frontend:
+    image: node:18.17-alpine
+
   backend:
     build:
       dockerfile: ./docker-compose/backend/Dockerfile
