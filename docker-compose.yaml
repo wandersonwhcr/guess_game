@@ -10,7 +10,8 @@ services:
       - 80:80
 
   frontend:
-    image: node:18.17-alpine
+    build:
+      dockerfile: ./docker-compose/frontend/Dockerfile
 
   backend:
     build:
