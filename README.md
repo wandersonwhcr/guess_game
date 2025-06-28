@@ -14,6 +14,7 @@ docker compose up \
 - [ ] Configurar LABELS recomendadas no Dockerfile
 - [ ] Isolar redes
 - [ ] Documentar Docker Compose
+- [ ] Colocar Senha em uma Secret
 
 ---
 

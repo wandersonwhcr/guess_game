@@ -3,6 +3,7 @@ services:
   proxy:
     image: nginx:1.29-alpine
     container_name: ${COMPOSE_PROJECT_NAME}_proxy
+    restart: on-failure
     configs:
       - source: proxy-nginx-template-default
         target: /etc/nginx/templates/default.conf.template
@@ -19,6 +20,7 @@ services:
   backend:
     build:
       dockerfile: ./docker-compose/backend/Dockerfile
+    restart: on-failure
     environment:
       FLASK_DB_TYPE: postgres
       FLASK_DB_USER: postgres
@@ -32,6 +34,7 @@ services:
 
   database:
     image: postgres:17.5-alpine
+    restart: on-failure
     volumes:
       - database-postgres-data:/var/lib/postgresql/data
     environment:
