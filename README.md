@@ -1,10 +1,21 @@
-# TODO
+# Trabalho Prático Unidade 1 Docker
+
+## Inicialização
+
+```
+docker compose up \
+    --detach
+```
+
+## TODO
 
 - [ ] Configurar Flask como WSGI
 - [ ] Fazer build das Imagens Locais
 - [ ] Configurar LABELS recomendadas no Dockerfile
 - [ ] Isolar redes
 - [ ] Documentar Docker Compose
+
+---
 
 Aqui está um exemplo de um arquivo `README.md` para o seu jogo:
 
