@@ -31,11 +31,11 @@ docker compose up \
 - [ ] Configurar o React para Produção
 - [ ] Fazer build das Imagens Locais
 - [ ] Configurar LABELS recomendadas no Dockerfile
-- [ ] Isolar redes
 - [ ] Documentar Docker Compose
 - [ ] Colocar Senha em uma Secret
 - [ ] Explicar o Porquê de Containers Prontos ao Invés de Volumes nos Fontes
 - [ ] Explicar como Efetuar Balanceamento de Carga
+- [ ] Desenhar Arquitetura com Redes Isoladas
 
 ---
 
