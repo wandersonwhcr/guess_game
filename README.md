@@ -34,6 +34,7 @@ docker compose up \
 - [ ] Documentar Docker Compose
 - [ ] Colocar Senha em uma Secret
 - [ ] Explicar o Porquê de Containers Prontos ao Invés de Volumes nos Fontes
+- [ ] Explicar como Efetuar Balanceamento de Carga
 
 ---
 
