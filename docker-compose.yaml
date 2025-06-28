@@ -12,14 +12,12 @@ services:
       - 5000:5000
 
   frontend:
-    build:
-      dockerfile: ./docker-compose/frontend/Dockerfile
+    image: guess_game_frontend:v1.0
     environment:
       REACT_APP_BACKEND_URL: http://localhost:5000
 
   backend:
-    build:
-      dockerfile: ./docker-compose/backend/Dockerfile
+    image: guess_game_backend:v1.0
     restart: on-failure
     environment:
       FLASK_DB_TYPE: postgres
