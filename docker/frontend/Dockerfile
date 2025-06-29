@@ -4,12 +4,6 @@ LABEL org.opencontainers.image.title="guess_game_frontend" \
       org.opencontainers.image.description="Guess Game Frontend" \
       org.opencontainers.image.authors="Wanderson Camargo <wandersonwhcr@gmail.com>"
 
-ENTRYPOINT [ "yarn" ]
-
-CMD [ "start" ]
-
-EXPOSE 3000
-
 WORKDIR /usr/local/src
 
 COPY ./frontend/package.json ./frontend/package-lock.json ./
@@ -23,6 +17,8 @@ COPY ./frontend ./
 RUN npm run build
 
 FROM nginx:1.29-alpine AS release
+
+EXPOSE 3000
 
 COPY ./docker/frontend/configs/nginx-template-default.conf /etc/nginx/templates/default.conf.template
 

@@ -7,4 +7,4 @@ db/*
 *.pyo
 bin/
 *.lock
-
+.env

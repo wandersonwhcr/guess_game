@@ -8,30 +8,31 @@ services:
       - source: proxy-nginx-template-default
         target: /etc/nginx/templates/default.conf.template
     networks:
-      proxy:
+      proxy-frontend:
+      proxy-backend:
     ports:
       - 3000:3000
       - 5000:5000
 
   frontend:
-    image: guess_game_frontend:v1.0
+    image: guess_game_frontend:${GUESS_GAME_VERSION:-v1.0}
     restart: on-failure
     networks:
-      proxy:
+      proxy-frontend:
     environment:
       REACT_APP_BACKEND_URL: http://localhost:5000
 
   backend:
-    image: guess_game_backend:v1.0
+    image: guess_game_backend:${GUESS_GAME_VERSION:-v1.0}
     restart: on-failure
     networks:
-      proxy:
-      backend:
+      proxy-backend:
+      backend-database:
     environment:
       FLASK_DB_TYPE: postgres
       FLASK_DB_USER: postgres
       FLASK_DB_NAME: postgres
-      FLASK_DB_PASSWORD: postgres
+      FLASK_DB_PASSWORD: ${DATABASE_PASSWORD:-supersecret}
       FLASK_DB_HOST: database
       FLASK_DB_PORT: 5432
     depends_on:
@@ -40,13 +41,14 @@ services:
 
   database:
     image: postgres:17.5-alpine
+    container_name: ${COMPOSE_PROJECT_NAME}_database
     restart: on-failure
     networks:
-      backend:
+      backend-database:
     volumes:
       - database-postgres-data:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-supersecret}
     healthcheck:
       test: [ CMD, pg_isready, --username=postgres ]
       interval: 3s
@@ -58,8 +60,9 @@ configs:
     file: ./docker-compose/proxy/configs/nginx-template-default.conf
 
 networks:
-  proxy:
-  backend:
+  proxy-frontend:
+  proxy-backend:
+  backend-database:
 
 volumes:
   database-postgres-data:
