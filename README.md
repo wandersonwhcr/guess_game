@@ -27,7 +27,6 @@ docker compose up \
 
 ## TODO
 
-- [ ] Configurar Flask como WSGI para Produção
 - [ ] Configurar o React para Produção
 - [ ] Documentar Docker Compose
 - [ ] Explicar o Porquê de Containers Prontos ao Invés de Volumes nos Fontes
