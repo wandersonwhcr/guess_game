@@ -104,17 +104,17 @@ GUESS_GAME_VERSION="v1.0"
 ```
 docker build . \
     --file ./docker/backend/Dockerfile \
-    --tag guess_game_backend:$GUESS_GAME_VERSION
+    --tag wandersonwhcr/guess_game_backend:$GUESS_GAME_VERSION
 ```
 
 ```
 docker build . \
     --file ./docker/frontend/Dockerfile \
-    --tag guess_game_frontend:$GUESS_GAME_VERSION
+    --tag wandersonwhcr/guess_game_frontend:$GUESS_GAME_VERSION
 ```
 
-Como resultado, as imagens `guess_game_backend:v1.0` e
-`guess_game_frontend:v1.0` serão criadas.
+Como resultado, as imagens `wandersonwhcr/guess_game_backend:v1.0` e
+`wandersonwhcr/guess_game_frontend:v1.0` serão criadas.
 
 ### Docker Compose
 
@@ -191,13 +191,13 @@ GUESS_GAME_VERSION="v1.1"
 ```
 docker build . \
     --file ./docker/backend/Dockerfile \
-    --tag guess_game_backend:$GUESS_GAME_VERSION
+    --tag wandersonwhcr/guess_game_backend:$GUESS_GAME_VERSION
 ```
 
 ```
 docker build . \
     --file ./docker/frontend/Dockerfile \
-    --tag guess_game_frontend:$GUESS_GAME_VERSION
+    --tag wandersonwhcr/guess_game_frontend:$GUESS_GAME_VERSION
 ```
 
 Após, adicione a nova versão no arquivo `.env` através do comando:
