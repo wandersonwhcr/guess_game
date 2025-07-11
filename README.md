@@ -9,6 +9,16 @@ somente arquivos relativos ao Kubernetes.
 
 TODO
 
+## Execução
+
+### Docker
+
+### Kubernetes
+
+```
+minikube start
+```
+
 # Trabalho Prático Unidade 1 Docker
 
 Este trabalho tem por objetivo apresentar um projeto que executa a aplicação
