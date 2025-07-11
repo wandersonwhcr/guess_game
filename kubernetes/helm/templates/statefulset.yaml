@@ -9,6 +9,7 @@ metadata:
     app.kubernetes.io/part-of: {{ .Release.Name }}
     app.kubernetes.io/version: {{ .Chart.Version | quote }}
 spec:
+  serviceName: database
   selector:
     matchLabels:
       app.kubernetes.io/component: database
