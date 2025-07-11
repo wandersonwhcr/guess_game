@@ -1,5 +1,14 @@
 # Trabalho Prático Unidade 2 Kubernetes
 
+A segunda parte deste trabalho demonstra como executar a aplicação `guess_game`
+utilizando _containers_ via Kubernetes. Assim como o trabalho da Unidade 1,
+nenhuma parte do código-fonte da aplicação foi modificada, adicionando-se
+somente arquivos relativos ao Kubernetes.
+
+## Estrutura Adicional do Repositório
+
+TODO
+
 # Trabalho Prático Unidade 1 Docker
 
 Este trabalho tem por objetivo apresentar um projeto que executa a aplicação
