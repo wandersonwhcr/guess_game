@@ -58,6 +58,15 @@ também configura o `kubectl` com as credenciais de acesso.
 minikube start
 ```
 
+### Helm
+
+```
+helm upgrade guess-game ./kubernetes/helm \
+    --install \
+    --namespace guess-game \
+    --create-namespace
+```
+
 # Trabalho Prático Unidade 1 Docker
 
 Este trabalho tem por objetivo apresentar um projeto que executa a aplicação
