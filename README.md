@@ -13,6 +13,40 @@ TODO
 
 ### Docker
 
+> [!NOTE]
+> Esta seção existe somente para demonstrar como as imagens de _containers_
+> foram criadas e enviadas para o Docker Hub e não devem ser executadas
+> localmente durante a avaliação, haja vista que elas já estão disponíveis.
+
+Os serviços `backend` e `frontend` precisam que as imagens de _containers_ sejam
+inicializadas. Para tanto, execute os comandos abaixo.
+
+```
+GUESS_GAME_VERSION="v1.0"
+```
+
+```
+docker build . \
+    --file ./docker/backend/Dockerfile \
+    --tag wandersonwhcr/guess_game_backend:$GUESS_GAME_VERSION
+```
+
+```
+docker build . \
+    --file ./docker/frontend/Dockerfile \
+    --tag wandersonwhcr/guess_game_frontend:$GUESS_GAME_VERSION
+```
+
+Após, deve-se enviar as imagens para o Docker Hub.
+
+```
+docker push wandersonwhcr/guess_game_backend:$GUESS_GAME_VERSION
+```
+
+```
+docker push wandersonwhcr/guess_game_frontend:$GUESS_GAME_VERSION
+```
+
 ### Kubernetes
 
 ```
