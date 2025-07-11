@@ -37,7 +37,8 @@ docker build . \
     --tag wandersonwhcr/guess_game_frontend:$GUESS_GAME_VERSION
 ```
 
-Após, deve-se enviar as imagens para o Docker Hub.
+Após, deve-se enviar as imagens para o Docker Hub, tornando-as disponíveis para
+utilização no _cluster_ Kubernetes.
 
 ```
 docker push wandersonwhcr/guess_game_backend:$GUESS_GAME_VERSION
@@ -48,6 +49,10 @@ docker push wandersonwhcr/guess_game_frontend:$GUESS_GAME_VERSION
 ```
 
 ### Kubernetes
+
+Para iniciar um _cluster_ Kubernetes localmente, pode-se utilizar o minikube
+através do comando abaixo. Além de criar um _cluster_ de nó único, o comando
+também configura o `kubectl` com as credenciais de acesso.
 
 ```
 minikube start
