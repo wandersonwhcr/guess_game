@@ -19,8 +19,6 @@ services:
     restart: on-failure
     networks:
       proxy-frontend:
-    environment:
-      REACT_APP_BACKEND_URL: http://localhost:5000
 
   backend:
     image: wandersonwhcr/guess_game_backend:${GUESS_GAME_VERSION:-v1.0}
