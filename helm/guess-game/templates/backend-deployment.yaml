@@ -1,4 +1,3 @@
-# TODO HealthCheck
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -42,7 +41,27 @@ spec:
                   key: FLASK_DB_PASSWORD
             - name: FLASK_DB_NAME
               value: postgres
+          args:
+            - --http=0.0.0.0:5000
+            - --master
+            - --processes=4
+            - --module=guess:create_app()
+            - --need-app
+            - --stats=127.0.0.1:1717
+            - --stats-http
           lifecycle:
             preStop:
               exec:
                 command: [ /bin/sh, -c, kill -INT 1 ]
+          readinessProbe:
+            exec:
+              command: [ uwsgi, --connect-and-read, 127.0.0.1:1717 ]
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 5
+          livenessProbe:
+            exec:
+              command: [ uwsgi, --connect-and-read, 127.0.0.1:1717 ]
+            initialDelaySeconds: 1
+            periodSeconds: 30
+            timeoutSeconds: 5
