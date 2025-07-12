@@ -55,14 +55,24 @@ Para iniciar um _cluster_ Kubernetes localmente, pode-se utilizar o minikube
 através do comando abaixo. Além de criar um _cluster_ de nó único, o comando
 também configura o `kubectl` com as credenciais de acesso.
 
+TODO Há um wait do minikube?
+
 ```
 minikube start
 ```
 
 TODO Explicar Ingress
+TODO Aguardar Ingress Controller?
 
 ```
 minikube addons enable ingress
+```
+
+TODO Explicar Metrics
+TODO Aguardar Metrics Server?
+
+```
+minikube addons enable metrics-server
 ```
 
 ```
