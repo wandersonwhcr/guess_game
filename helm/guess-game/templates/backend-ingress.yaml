@@ -9,8 +9,7 @@ metadata:
     app.kubernetes.io/version: {{ .Chart.Version | quote }}
 spec:
   rules:
-    # TODO Host no Values
-    - host: backend.guess-game.minikube
+    - host: {{ .Values.backend.ingress.host }}
       http:
         paths:
           - path: /

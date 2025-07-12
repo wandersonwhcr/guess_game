@@ -53,6 +53,7 @@ spec:
             preStop:
               exec:
                 command: [ /bin/sh, -c, kill -INT 1 ]
+          # TODO depois da primeira requisição... ele pára?
           readinessProbe:
             exec:
               command: [ uwsgi, --connect-and-read, 127.0.0.1:1717 ]

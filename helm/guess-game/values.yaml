@@ -1,0 +1,7 @@
+backend:
+  ingress:
+    host: backend.guess-game.minikube
+
+frontend:
+  ingress:
+    host: frontend.guess-game.minikube
