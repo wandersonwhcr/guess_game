@@ -9,7 +9,7 @@ RUN pip install pyuwsgi \
 
 ENTRYPOINT [ "uwsgi" ]
 
-CMD [ "--http=0.0.0.0:5000", "--master", "--processes=4", "--module", "guess:create_app()" ]
+CMD [ "--http=0.0.0.0:5000", "--master", "--processes=4", "--module", "guess:create_app()", "--need-app" ]
 
 EXPOSE 5000
 
