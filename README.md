@@ -105,17 +105,17 @@ kubectl create namespace guess-game
 ```
 kubectl get secret database-postgresql \
     --namespace database \
-    --output 'go-template=POSTGRES_PASSWORD={{ index .data "postgres-password" | base64decode }}' \
+    --output 'go-template=FLASK_DB_PASSWORD={{ index .data "postgres-password" | base64decode }}' \
     | kubectl create secret generic guess-game-database-credentials \
         --namespace guess-game \
         --from-env-file /dev/stdin
 ```
 
 ```
-helm upgrade guess-game ./kubernetes/helm \
+helm upgrade guess-game ./helm/guess-game \
     --install \
     --namespace guess-game \
-    --create-namespace
+    --wait
 ```
 
 # Trabalho Prático Unidade 1 Docker
