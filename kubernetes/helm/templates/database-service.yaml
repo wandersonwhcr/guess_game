@@ -4,16 +4,12 @@ metadata:
   name: database
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/name: postgres
-    app.kubernetes.io/component: database
+    app.kubernetes.io/name: database
     app.kubernetes.io/part-of: {{ .Release.Name }}
     app.kubernetes.io/version: {{ .Chart.Version | quote }}
 spec:
   selector:
-    app.kubernetes.io/name: postgres
-    app.kubernetes.io/component: database
-    app.kubernetes.io/part-of: {{ .Release.Name }}
-    app.kubernetes.io/version: {{ .Chart.Version | quote }}
+    app.kubernetes.io/name: database
   ports:
     - name: postgres
       port: 5432

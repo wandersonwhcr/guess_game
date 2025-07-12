@@ -1,30 +1,33 @@
+# TODO Termination Grace Period
+# TODO Termination Signal
+# TODO HealthCheck
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: database
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/name: postgres
-    app.kubernetes.io/component: database
+    app.kubernetes.io/name: database
     app.kubernetes.io/part-of: {{ .Release.Name }}
     app.kubernetes.io/version: {{ .Chart.Version | quote }}
 spec:
   serviceName: database
   selector:
     matchLabels:
-      app.kubernetes.io/component: database
-      app.kubernetes.io/part-of: {{ .Release.Name }}
+      app.kubernetes.io/name: database
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: postgres
-        app.kubernetes.io/component: database
+        app.kubernetes.io/name: database
         app.kubernetes.io/part-of: {{ .Release.Name }}
         app.kubernetes.io/version: {{ .Chart.Version | quote }}
     spec:
       containers:
         - name: postgres
           image: postgres:17.5-alpine
+          ports:
+            - name: postgres
+              containerPort: 5432
           env:
             - name: POSTGRES_PASSWORD
               value: supersecret
@@ -47,8 +50,7 @@ spec:
     - metadata:
         name: postgres-data
         labels:
-          app.kubernetes.io/name: postgres
-          app.kubernetes.io/component: database
+          app.kubernetes.io/name: database
           app.kubernetes.io/part-of: {{ .Release.Name }}
           app.kubernetes.io/version: {{ .Chart.Version | quote }}
       spec:
