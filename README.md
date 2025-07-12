@@ -59,6 +59,12 @@ também configura o `kubectl` com as credenciais de acesso.
 minikube start
 ```
 
+TODO Explicar Ingress
+
+```
+minikube addons enable ingress
+```
+
 ### Helm
 
 ```
