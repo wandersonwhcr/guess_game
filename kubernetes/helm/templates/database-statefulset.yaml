@@ -15,6 +15,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: database
+      app.kubernetes.io/part-of: {{ .Release.Name }}
   template:
     metadata:
       labels:

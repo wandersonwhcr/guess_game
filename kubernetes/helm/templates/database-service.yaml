@@ -10,6 +10,7 @@ metadata:
 spec:
   selector:
     app.kubernetes.io/name: database
+    app.kubernetes.io/part-of: {{ .Release.Name }}
   ports:
     - name: postgres
       port: 5432

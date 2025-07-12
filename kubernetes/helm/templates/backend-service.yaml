@@ -10,6 +10,7 @@ metadata:
 spec:
   selector:
     app.kubernetes.io/name: backend
+    app.kubernetes.io/part-of: {{ .Release.Name }}
   ports:
     - name: http
       port: 80
