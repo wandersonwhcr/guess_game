@@ -1,6 +1,5 @@
-# TODO Termination Grace Period
-# TODO Termination Signal
-# TODO HealthCheck
+# TODO Separado da Aplicação? Acho que sim
+# TODO Senha em Secret
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:

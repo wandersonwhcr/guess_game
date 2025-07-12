@@ -1,3 +1,7 @@
+# TODO Termination Grace Period
+# TODO Termination Signal
+# TODO HealthCheck
+# TODO Senha em Secret
 apiVersion: apps/v1
 kind: Deployment
 metadata:
