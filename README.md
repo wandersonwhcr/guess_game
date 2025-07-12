@@ -83,6 +83,18 @@ echo `minikube ip` minikube backend.guess-game.minikube frontend.guess-game.mini
 ### Helm
 
 ```
+helm dependencies build ./helm/database
+```
+
+```
+helm upgrade database ./helm/database \
+    --install \
+    --namespace database \
+    --create-namespace \
+    --wait
+```
+
+```
 helm upgrade guess-game ./kubernetes/helm \
     --install \
     --namespace guess-game \
