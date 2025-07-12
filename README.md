@@ -34,7 +34,7 @@ docker build . \
 ```
 docker build . \
     --file ./docker/frontend/Dockerfile \
-    --build-arg REACT_APP_BACKEND_URL=http://backend \
+    --build-arg REACT_APP_BACKEND_URL=http://backend.guess-game.minikube \
     --tag wandersonwhcr/guess_game_frontend:$GUESS_GAME_VERSION
 ```
 
@@ -63,6 +63,11 @@ TODO Explicar Ingress
 
 ```
 minikube addons enable ingress
+```
+
+```
+echo `minikube ip` minikube backend.guess-game.minikube frontend.guess-game.minikube \
+    | sudo tee --append /etc/hosts
 ```
 
 ### Helm
