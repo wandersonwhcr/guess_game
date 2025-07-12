@@ -82,6 +82,8 @@ echo `minikube ip` minikube backend.guess-game.minikube frontend.guess-game.mini
 
 ### Helm
 
+#### Banco de Dados
+
 ```
 helm dependencies build ./helm/database
 ```
@@ -92,6 +94,21 @@ helm upgrade database ./helm/database \
     --namespace database \
     --create-namespace \
     --wait
+```
+
+#### Aplicação `guess-game`
+
+```
+kubectl create namespace guess-game
+```
+
+```
+kubectl get secret database-postgresql \
+    --namespace database \
+    --output 'go-template=POSTGRES_PASSWORD={{ index .data "postgres-password" | base64decode }}' \
+    | kubectl create secret generic guess-game-database-credentials \
+        --namespace guess-game \
+        --from-env-file /dev/stdin
 ```
 
 ```
