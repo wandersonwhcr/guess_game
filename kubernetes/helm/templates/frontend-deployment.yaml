@@ -23,3 +23,6 @@ spec:
       containers:
         - name: frontend
           image: wandersonwhcr/guess_game_frontend:v1.0
+          ports:
+            - name: http
+              containerPort: 3000
