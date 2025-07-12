@@ -34,6 +34,7 @@ docker build . \
 ```
 docker build . \
     --file ./docker/frontend/Dockerfile \
+    --build-arg REACT_APP_BACKEND_URL=http://backend \
     --tag wandersonwhcr/guess_game_frontend:$GUESS_GAME_VERSION
 ```
 

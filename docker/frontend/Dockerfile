@@ -1,5 +1,7 @@
 FROM node:18.17-alpine AS build
 
+ARG REACT_APP_BACKEND_URL="http://localhost:5000"
+
 LABEL org.opencontainers.image.title="guess_game_frontend" \
       org.opencontainers.image.description="Guess Game Frontend" \
       org.opencontainers.image.authors="Wanderson Camargo <wandersonwhcr@gmail.com>"
@@ -10,7 +12,7 @@ COPY ./frontend/package.json ./frontend/package-lock.json ./
 
 RUN npm install
 
-ENV REACT_APP_BACKEND_URL="http://localhost:5000"
+ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 
 COPY ./frontend ./
 
