@@ -86,11 +86,6 @@ echo `minikube ip` minikube backend.guess-game.minikube frontend.guess-game.mini
     | sudo tee --append /etc/hosts
 ```
 
-Ao final, os serviços estarão disponíveis nas seguintes URLs:
-
-* http://backend.guess-game.minikube
-* http://frontend.guess-game.minikube
-
 ### Helm
 
 #### Banco de Dados
@@ -128,6 +123,13 @@ helm upgrade guess-game ./helm/guess-game \
     --namespace guess-game \
     --wait
 ```
+
+### Acesso
+
+Ao final, os serviços estarão disponíveis nas seguintes URLs:
+
+* http://backend.guess-game.minikube
+* http://frontend.guess-game.minikube
 
 # Trabalho Prático Unidade 1 Docker
 
