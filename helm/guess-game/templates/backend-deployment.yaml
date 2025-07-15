@@ -27,20 +27,18 @@ spec:
               containerPort: 5000
           env:
             - name: FLASK_DB_TYPE
-              value: postgres
+              value: {{ .Values.backend.database.type }}
             - name: FLASK_DB_HOST
-              value: database-postgresql.database.svc
+              value: {{ .Values.backend.database.host }}
             - name: FLASK_DB_PORT
-              value: "5432"
+              value: {{ .Values.backend.database.port | quote }}
             - name: FLASK_DB_USER
-              value: postgres
+              value: {{ .Values.backend.database.user }}
             - name: FLASK_DB_PASSWORD
               valueFrom:
-                secretKeyRef:
-                  name: guess-game-database-credentials
-                  key: FLASK_DB_PASSWORD
+                {{- toYaml .Values.backend.database.pass | nindent 16 }}
             - name: FLASK_DB_NAME
-              value: postgres
+              value: {{ .Values.backend.database.name }}
           lifecycle:
             preStop:
               exec:

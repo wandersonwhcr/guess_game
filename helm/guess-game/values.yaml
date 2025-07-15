@@ -1,4 +1,14 @@
 backend:
+  database:
+    type: postgres
+    host: database-postgresql.database.svc
+    port: 5432
+    name: postgres
+    user: postgres
+    pass:
+      secretKeyRef:
+        name: guess-game-database-credentials
+        key: FLASK_DB_PASSWORD
   ingress:
     host: backend.guess-game.minikube
 
