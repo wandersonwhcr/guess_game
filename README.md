@@ -90,9 +90,16 @@ echo `minikube ip` minikube backend.guess-game.minikube frontend.guess-game.mini
 
 #### Banco de Dados
 
+Optou-se por instalar o PostgreSQL utilizando Helm, através de um _chart_ como
+dependência, responsável por criar todos os recursos do Kubernetes que
+inicializam o banco de dados no _cluster_. Para isto, execute o seguinte comando
+para construir as dependências localmente.
+
 ```
 helm dependencies build ./helm/database
 ```
+
+Após, inicialize o banco de dados no _cluster_ com o próximo comando.
 
 ```
 helm upgrade database ./helm/database \
