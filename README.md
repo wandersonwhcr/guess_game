@@ -16,7 +16,7 @@ TODO
 ### Docker
 
 > [!NOTE]
-> Esta seção existe somente para demonstrar como as imagens de _containers_
+> A seção Docker existe somente para demonstrar como as imagens de _containers_
 > foram criadas e enviadas para o Docker Hub e não devem ser executadas
 > localmente durante a avaliação, haja vista que elas já estão disponíveis.
 
@@ -57,10 +57,9 @@ Para iniciar um _cluster_ Kubernetes localmente, pode-se utilizar o minikube
 através do comando abaixo. Além de criar um _cluster_ de nó único, o comando
 também configura o `kubectl` com as credenciais de acesso.
 
-TODO Há um wait do minikube?
-
 ```
-minikube start
+minikube start \
+    --wait all
 ```
 
 TODO Explicar Ingress
