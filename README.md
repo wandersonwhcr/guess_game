@@ -62,24 +62,34 @@ minikube start \
     --wait all
 ```
 
-TODO Explicar Ingress
-TODO Aguardar Ingress Controller?
-
-```
-minikube addons enable ingress
-```
-
-TODO Explicar Metrics
-TODO Aguardar Metrics Server?
+Para que o `HorizontalPodAutoscaler` funcione, necessita-se da geração de
+métricas dos _pods_ através do `metrics-server`, habilitado com este comando:
 
 ```
 minikube addons enable metrics-server
 ```
 
+Além disso, para acessar os serviços de forma externa ao _cluster_, utilizou-se
+`ingress`. Para tanto, existe a necessidade de habilitar este _addon_ com o
+seguinte comando.
+
+```
+minikube addons enable ingress
+```
+
+Acessar estes serviços exige que os _hostnames_ estejam configurados na máquina
+local e que resolvam para o IP do minikube. Execute o seguinte comando para
+configurar o arquivo `/etc/hosts` com estas informações.
+
 ```
 echo `minikube ip` minikube backend.guess-game.minikube frontend.guess-game.minikube \
     | sudo tee --append /etc/hosts
 ```
+
+Ao final, os serviços estarão disponíveis nas seguintes URLs:
+
+* http://backend.guess-game.minikube
+* http://frontend.guess-game.minikube
 
 ### Helm
 
