@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: wandersonwhcr/guess_game_frontend:v1.0
+          image: wandersonwhcr/guess_game_frontend:{{ .Chart.AppVersion }}
           ports:
             - name: http
               containerPort: 3000
