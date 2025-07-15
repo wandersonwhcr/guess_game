@@ -1,6 +1,6 @@
 # Trabalho Prático Unidade 2 Kubernetes
 
-TODO Procurar por TODOs
+TODO Procurar por TODOs com `grep` em todo diretório
 
 A segunda parte deste trabalho demonstra como executar a aplicação `guess_game`
 utilizando _containers_ via Kubernetes. Assim como o trabalho da Unidade 1,
