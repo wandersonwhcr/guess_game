@@ -71,7 +71,7 @@ minikube start \
     --wait all
 ```
 
-O trabalho exige que o `HorizontalPodAutoscaler` funcione, então, necessita-se
+O trabalho exige que o _HorizontalPodAutoscaler_ funcione, então, necessita-se
 da geração de métricas dos _pods_ através do `metrics-server`, habilitado com
 este comando:
 
@@ -153,6 +153,16 @@ helm upgrade guess-game ./helm/guess-game \
 ```
 
 ##### Recursos
+
+A aplicação cria os seguintes recursos do Kubernetes:
+
+* _Deployment_ `backend`: responsável por gerenciar os _pods_ do `backend`
+* _Service_ `backend`: utilizado para descobrimento de serviço do `backend`
+* _Ingress_ `backend`: configura o IngressController para acesso externo ao `backend`
+* _HorizontalPodAutoscaler_ `backend`: efetua a escalabilidade horizontal dos _pods_ do `backend`
+* _Deployment_ `frontend`: responsável por gerenciar os _pods_ do `frontend`
+* _Service_ `frontend`: utilizado para descobrimento de serviço do `frontend`
+* _Ingress_ `frontend`: configura o IngressController para acesso externo ao `frontend`
 
 ### Acesso
 
