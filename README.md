@@ -1,7 +1,5 @@
 # Trabalho Prático Unidade 2 Kubernetes
 
-TODO Procurar por TODOs com `grep` em todo diretório
-
 A segunda parte deste trabalho demonstra como executar a aplicação `guess_game`
 utilizando _containers_ via Kubernetes. Assim como o trabalho da Unidade 1,
 nenhuma parte do código-fonte da aplicação foi modificada, adicionando-se
@@ -9,7 +7,18 @@ somente arquivos relativos ao Kubernetes.
 
 ## Estrutura Adicional do Repositório
 
-TODO
+```
+guess_game/
+├─ helm/
+│  ├─ database/
+│  │  ├─ Chart.yaml
+│  ├─ guess-game/
+│  │  ├─ Chart.yaml
+│  │  ├─ values.yaml
+│  │  ├─ templates/
+│  │  │  ├─ backend-*.yaml
+│  │  │  ├─ frontend-*.yaml
+```
 
 ## Execução
 
