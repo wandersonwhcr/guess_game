@@ -62,15 +62,16 @@ minikube start \
     --wait all
 ```
 
-Para que o `HorizontalPodAutoscaler` funcione, necessita-se da geração de
-métricas dos _pods_ através do `metrics-server`, habilitado com este comando:
+O trabalho exige que o `HorizontalPodAutoscaler` funcione, então, necessita-se
+da geração de métricas dos _pods_ através do `metrics-server`, habilitado com
+este comando:
 
 ```
 minikube addons enable metrics-server
 ```
 
-Além disso, para acessar os serviços de forma externa ao _cluster_, utilizou-se
-`ingress`. Para tanto, existe a necessidade de habilitar este _addon_ com o
+Além disso, para acessar os serviços de forma externa ao _cluster_, optou-se por
+Ingress. Para tanto, existe a necessidade de habilitar o _addon_ `ingress` com o
 seguinte comando.
 
 ```
@@ -90,9 +91,9 @@ echo `minikube ip` minikube backend.guess-game.minikube frontend.guess-game.mini
 
 #### Banco de Dados
 
-Optou-se por instalar o PostgreSQL utilizando Helm, através de um _chart_ como
-dependência, responsável por criar todos os recursos do Kubernetes que
-inicializam o banco de dados no _cluster_. Para isto, execute o seguinte comando
+Escolheu-se por instalar o PostgreSQL utilizando Helm, através de um _chart_
+como dependência, responsável por criar todos os recursos do Kubernetes que
+instalam o banco de dados no _cluster_. Para isto, execute o seguinte comando
 para construir as dependências localmente.
 
 ```
@@ -111,7 +112,7 @@ helm upgrade database ./helm/database \
 
 #### Aplicação `guess-game`
 
-Toda a aplicação será instalada dentro do _namespace_ `guess-game`. Crie o
+A aplicação será instalada dentro do _namespace_ `guess-game`. Assim, crie o
 _namespace_ com o comando abaixo.
 
 ```
@@ -131,7 +132,7 @@ kubectl get secret database-postgresql \
         --from-env-file /dev/stdin
 ```
 
-Por fim, instale a aplicação `guess-game` em seu _namespace_ utilizando um Helm
+Por fim, instale a aplicação `guess-game` em seu _namespace_ utilizando o Helm
 Chart local, responsável por configurar recursos que disponibilizam os serviços
 `backend` e `frontend` no _cluster_ Kubernetes.
 
