@@ -111,9 +111,16 @@ helm upgrade database ./helm/database \
 
 #### Aplicação `guess-game`
 
+Toda a aplicação será instalada dentro do _namespace_ `guess-game`. Crie o
+_namespace_ com o comando abaixo.
+
 ```
 kubectl create namespace guess-game
 ```
+
+Na sequência, copie as credenciais de acesso ao banco de dados que estão no
+_namespace_ `database` para o _namespace_ `guess-game`, pois os recursos do tipo
+_secret_ não são compartilhados entre _namespaces_.
 
 ```
 kubectl get secret database-postgresql \
@@ -123,6 +130,10 @@ kubectl get secret database-postgresql \
         --namespace guess-game \
         --from-env-file /dev/stdin
 ```
+
+Por fim, instale a aplicação `guess-game` em seu _namespace_ utilizando um Helm
+Chart local, responsável por configurar recursos que disponibilizam os serviços
+`backend` e `frontend` no _cluster_ Kubernetes.
 
 ```
 helm upgrade guess-game ./helm/guess-game \
@@ -137,6 +148,8 @@ Ao final, os serviços estarão disponíveis nas seguintes URLs:
 
 * http://backend.guess-game.minikube
 * http://frontend.guess-game.minikube
+
+---
 
 # Trabalho Prático Unidade 1 Docker
 
