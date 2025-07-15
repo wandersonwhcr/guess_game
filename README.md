@@ -152,6 +152,8 @@ helm upgrade guess-game ./helm/guess-game \
     --wait
 ```
 
+##### Recursos
+
 ### Acesso
 
 Ao final, os serviços estarão disponíveis nas seguintes URLs:
